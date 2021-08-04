@@ -6,4 +6,11 @@
         TODO
     </description>
   </class>
+    <class name="orne_tools_rviz_plugins/SaveTriggerPanel"
+         type="orne_tools_rviz_plugins::SaveTriggerPanel"
+         base_class_type="rviz::Panel">
+    <description>
+        TODO
+    </description>
+  </class>
 </library>
