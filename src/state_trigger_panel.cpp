@@ -20,8 +20,8 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
 {
   start_client_ = nh_.serviceClient<std_srvs::Trigger>("start_wp_nav", false);
   resume_client_ = nh_.serviceClient<std_srvs::Trigger>("resume_nav", false);
-  loop_start_client_ = nh.serviceClient<std_srvs::Empty>("loop_start_wp_nav", false);
-  loop_stop_client_ = nh.serviceClient<std_srvs::Empty>("loop_stop_wp_nav", false);
+  loop_start_client_ = nh_.serviceClient<std_srvs::Empty>("loop_start_wp_nav", false);
+  loop_stop_client_ = nh_.serviceClient<std_srvs::Empty>("loop_stop_wp_nav", false);
   
   start_nav_button_ = new QPushButton("StartWaypointsNavigation");
   resume_nav_button_ = new QPushButton("ResumeWaypointsNavigation");
