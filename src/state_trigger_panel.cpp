@@ -67,15 +67,15 @@ void StateTriggerPanel::pushResumeNavigation() {
 void StateTriggerPanel::pushLoopStart() {
     ROS_INFO("Service call: loop start navigation");
     
-    std_srvs::Empty Empty;
-    loop_start_client_.call();
+    std_srvs::Empty empty;
+    loop_start_client_.call(empty);
 }
 
 void StateTriggerPanel::pushLoopStop() {
     ROS_INFO("Service call: loop stop navigation");
     
-    std_srvs::Empty Empty;
-    loop_stop_client_.call();
+    std_srvs::Empty empty;
+    loop_stop_client_.call(empty);
 }
 
 
