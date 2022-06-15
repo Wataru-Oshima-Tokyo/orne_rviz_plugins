@@ -24,13 +24,15 @@ public:
 public Q_SLOTS:
   void pushStartNavigation();
   void pushResumeNavigation();
-    
+  void pushLoopStart();
+  void pushLoopStop();
 protected:
   ros::NodeHandle nh_;
-  ros::ServiceClient start_client_, resume_client_;
+  ros::ServiceClient start_client_, resume_client_, loop_start_client_, loop_stop_client_;
   QPushButton *start_nav_button_;
   QPushButton *resume_nav_button_;
-
+  QPushButton *loop_start_button_;
+  QPushButton *loop_stop_button_;
 };
 
 } // end namespace orne_rviz_plugins
