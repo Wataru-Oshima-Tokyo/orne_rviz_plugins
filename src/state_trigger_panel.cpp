@@ -38,14 +38,14 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   stop_button_ =  new QPushButton("Stop(Cancel)WaypointsNavigation");
 
   QHBoxLayout* layout = new QHBoxLayout;
-  layout->addWidget(start_nav_button_);
-  layout->addWidget(resume_nav_button_);
-  layout->addWidget(pause_button_);
-  layout->addWidget(stop_button_);
-  layout->addWidget(loop_start_button_);
-  layout->addWidget(loop_stop_button_);
-  layout->addWidget(roundtrip_on_button_);
-  layout->addWidget(roundtrip_off_button_);
+  layout->addWidget(start_nav_button_,0,0);
+  layout->addWidget(resume_nav_button_,0,1);
+  layout->addWidget(pause_button_,0,2);
+  layout->addWidget(stop_button_,1,0);
+  layout->addWidget(loop_start_button_,1,1);
+  layout->addWidget(loop_stop_button_,1,2);
+  layout->addWidget(roundtrip_on_button_,2,0);
+  layout->addWidget(roundtrip_off_button_,2,1);
 
   setLayout( layout );
   
