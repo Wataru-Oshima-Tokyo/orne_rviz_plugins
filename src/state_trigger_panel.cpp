@@ -54,10 +54,10 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   connect(loop_start_button_, SIGNAL(clicked()), this, SLOT(pushLoopStart()));
   connect(loop_stop_button_, SIGNAL(clicked()), this, SLOT(pushLoopStop()));
 
-  connect(pause_button_, SIGNAL(clicked()), this, SLOT(pushLoopStart()));
-  connect(stop_button_, SIGNAL(clicked()), this, SLOT(pushLoopStop()));
-  connect(roundtrip_on_button_, SIGNAL(clicked()), this, SLOT(pushLoopStart()));
-  connect(roundtrip_off_button_, SIGNAL(clicked()), this, SLOT(pushLoopStop()));
+  connect(pause_button_, SIGNAL(clicked()), this, SLOT(pushPauseNavigation()));
+  connect(stop_button_, SIGNAL(clicked()), this, SLOT(pushStopNavigation()));
+  connect(roundtrip_on_button_, SIGNAL(clicked()), this, SLOT(pushRountTripOn()));
+  connect(roundtrip_off_button_, SIGNAL(clicked()), this, SLOT(pushRountTripOff()));
 }
 
 void StateTriggerPanel::save( rviz::Config config ) const
