@@ -37,7 +37,7 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   pause_button_ =  new QPushButton("PauseWaypointsNavigation");
   stop_button_ =  new QPushButton("Stop(Cancel)WaypointsNavigation");
 
-  QHBoxLayout* layout = new QHBoxLayout;
+  QGridLayout* layout = new QGridLayout;
   layout->addWidget(start_nav_button_,0,0);
   layout->addWidget(resume_nav_button_,0,1);
   layout->addWidget(pause_button_,0,2);
