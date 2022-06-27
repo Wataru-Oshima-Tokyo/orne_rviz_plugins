@@ -26,13 +26,23 @@ public Q_SLOTS:
   void pushResumeNavigation();
   void pushLoopStart();
   void pushLoopStop();
+  void pushStopNavigation();
+  void pushPauseNavigation();
+  void pushRountTripOn();
+  void pushRountTripOff();
+  
 protected:
   ros::NodeHandle nh_;
-  ros::ServiceClient start_client_, resume_client_, loop_start_client_, loop_stop_client_;
+  ros::ServiceClient start_client_, resume_client_, loop_start_client_, loop_stop_client_, 
+  roundtrip_on_client_, roundtrip_off_client_, pause_client_, stop_client_;
   QPushButton *start_nav_button_;
   QPushButton *resume_nav_button_;
   QPushButton *loop_start_button_;
   QPushButton *loop_stop_button_;
+  QPushButton *roundtrip_on_button_;
+  QPushButton *roundtrip_off_button_;
+  QPushButton *pause_button_;
+  QPushButton *stop_button_;
 };
 
 } // end namespace orne_rviz_plugins
