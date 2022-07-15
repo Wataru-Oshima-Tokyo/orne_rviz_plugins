@@ -25,7 +25,7 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   roundtrip_on_client_ =  nh_.serviceClient<std_srvs::Empty>("roundtrip_on_nav", false);
   roundtrip_off_client_ = nh_.serviceClient<std_srvs::Empty>("roundtrip_off_nav", false);
   pause_client_ = nh_.serviceClient<std_srvs::Empty>("pause_wp_nav", false);
-  stop_client_ = nh_.serviceClient<std_srvs::Empty>("stop_wp_nav", false);
+  stop_client_ = nh_.serviceClient<std_srvs::Trigger>("stop_wp_nav", false);
 
 
   start_nav_button_ = new QPushButton("StartWaypointsNavigation");
