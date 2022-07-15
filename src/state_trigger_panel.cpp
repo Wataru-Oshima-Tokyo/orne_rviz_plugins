@@ -99,28 +99,28 @@ void StateTriggerPanel::pushLoopStop() {
 
 
 void StateTriggerPanel::pushStopNavigation() {
-    ROS_INFO("Service call: loop stop navigation");
+    ROS_INFO("Service call: stop navigation");
     
-    std_srvs::Empty empty;
-    stop_client_.call(empty);
+    std_srvs::Trigger trigger;
+    stop_client_.call(trigger);
 }
 
 void StateTriggerPanel::pushPauseNavigation() {
-    ROS_INFO("Service call: loop stop navigation");
+    ROS_INFO("Service call:  pause navigation");
     
     std_srvs::Empty empty;
     pause_client_.call(empty);
 }
 
 void StateTriggerPanel::pushRountTripOn() {
-    ROS_INFO("Service call: loop stop navigation");
+    ROS_INFO("Service call: Round trip on");
     
     std_srvs::Empty empty;
     roundtrip_on_client_.call(empty);
 }
 
 void StateTriggerPanel::pushRountTripOff() {
-    ROS_INFO("Service call: loop stop navigation");
+    ROS_INFO("Service call: Round trip off");
     
     std_srvs::Empty empty;
     roundtrip_off_client_.call(empty);
