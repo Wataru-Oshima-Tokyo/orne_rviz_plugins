@@ -37,7 +37,7 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   roundtrip_off_button_ =  new QPushButton("RoundTrip_Off");
   pause_button_ =  new QPushButton("PauseWaypointsNavigation");
   stop_button_ =  new QPushButton("Stop(Cancel)WaypointsNavigation");
-  finish_action_button_ =  new QPushButton("Finsh_Action");
+  finish_action_button_ =  new QPushButton("Finish_Action");
 
   QGridLayout* layout = new QGridLayout;
   layout->addWidget(start_nav_button_,0,0);
@@ -105,6 +105,7 @@ void StateTriggerPanel::pushStopNavigation() {
     ROS_INFO("Service call: stop navigation");
     
     std_srvs::Trigger trigger;
+    
     stop_client_.call(trigger);
 }
 
@@ -131,8 +132,8 @@ void StateTriggerPanel::pushRountTripOff() {
 
 void StateTriggerPanel::pushFinishAction() {
     ROS_INFO("Service call:Finish_Action");
-    
     std_srvs::Trigger trigger;
+    trigger.message ="";
     action_client_.call(trigger);
 }
 
