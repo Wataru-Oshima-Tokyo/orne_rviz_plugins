@@ -133,7 +133,7 @@ void StateTriggerPanel::pushRountTripOff() {
 void StateTriggerPanel::pushFinishAction() {
     ROS_INFO("Service call:Finish_Action");
     std_srvs::Trigger trigger;
-    trigger.message ="";
+    trigger.success=true;
     action_client_.call(trigger);
 }
 
