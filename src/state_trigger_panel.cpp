@@ -26,6 +26,7 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   roundtrip_off_client_ = nh_.serviceClient<std_srvs::Empty>("roundtrip_off_nav", false);
   pause_client_ = nh_.serviceClient<std_srvs::Empty>("pause_wp_nav", false);
   stop_client_ = nh_.serviceClient<std_srvs::Trigger>("stop_wp_nav", false);
+  action_client_ = nh_.serviceClient<std_srvs::Trigger>("finish_action", false);
 
 
   start_nav_button_ = new QPushButton("StartWaypointsNavigation");
@@ -36,6 +37,7 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   roundtrip_off_button_ =  new QPushButton("RoundTrip_Off");
   pause_button_ =  new QPushButton("PauseWaypointsNavigation");
   stop_button_ =  new QPushButton("Stop(Cancel)WaypointsNavigation");
+  finish_action_button_ =  new QPushButton("Finsh_Action");
 
   QGridLayout* layout = new QGridLayout;
   layout->addWidget(start_nav_button_,0,0);
@@ -46,7 +48,7 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   layout->addWidget(loop_stop_button_,1,2);
   layout->addWidget(roundtrip_on_button_,2,0);
   layout->addWidget(roundtrip_off_button_,2,1);
-
+  layout->addWidget(finish_action_button_,2,2);
   setLayout( layout );
   
   connect(start_nav_button_, SIGNAL(clicked()), this, SLOT(pushStartNavigation()));
@@ -58,6 +60,7 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   connect(stop_button_, SIGNAL(clicked()), this, SLOT(pushStopNavigation()));
   connect(roundtrip_on_button_, SIGNAL(clicked()), this, SLOT(pushRountTripOn()));
   connect(roundtrip_off_button_, SIGNAL(clicked()), this, SLOT(pushRountTripOff()));
+  connect(finish_action_button_, SIGNAL(clicked()), this, SLOT((pushFinishAction)));
 }
 
 void StateTriggerPanel::save( rviz::Config config ) const
@@ -126,6 +129,12 @@ void StateTriggerPanel::pushRountTripOff() {
     roundtrip_off_client_.call(empty);
 }
 
+void StateTriggerPanel::pushFinishAction() {
+    ROS_INFO("Service call:Finish_Action");
+    
+    std_srvs::Trigger trigger;
+    action_client_.call(trigger);
+}
 
 
 } // end namespace orne_rviz_plugins
