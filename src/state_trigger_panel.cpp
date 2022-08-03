@@ -19,13 +19,13 @@ StateTriggerPanel::StateTriggerPanel( QWidget* parent )
   : rviz::Panel( parent )
 {
   start_client_ = nh_.serviceClient<std_srvs::Trigger>("start_wp_nav", false);
-  resume_client_ = nh_.serviceClient<std_srvs::Trigger>("resume_nav", false);
+  resume_client_ = nh_.serviceClient<std_srvs::Empty>("resume_wp_pose", false);
   loop_start_client_ = nh_.serviceClient<std_srvs::Empty>("loop_start_wp_nav", false);
   loop_stop_client_ = nh_.serviceClient<std_srvs::Empty>("loop_stop_wp_nav", false);
   roundtrip_on_client_ =  nh_.serviceClient<std_srvs::Empty>("roundtrip_on_nav", false);
   roundtrip_off_client_ = nh_.serviceClient<std_srvs::Empty>("roundtrip_off_nav", false);
   pause_client_ = nh_.serviceClient<std_srvs::Empty>("pause_wp_nav", false);
-  stop_client_ = nh_.serviceClient<std_srvs::Trigger>("stop_wp_nav", false);
+  stop_client_ = nh_.serviceClient<std_srvs::Empty>("stop_wp_nav", false);
   action_client_ = nh_.serviceClient<std_srvs::Empty>("finish_action", false);
 
 
@@ -83,8 +83,8 @@ void StateTriggerPanel::pushStartNavigation() {
 void StateTriggerPanel::pushResumeNavigation() {
     ROS_INFO("Service call: resume waypoints navigation");
     
-    std_srvs::Trigger trigger;
-    resume_client_.call(trigger);
+    std_srvs::Empty empty;
+    resume_client_.call(empty);
 }
 void StateTriggerPanel::pushLoopStart() {
     ROS_INFO("Service call: loop start navigation");
@@ -104,9 +104,9 @@ void StateTriggerPanel::pushLoopStop() {
 void StateTriggerPanel::pushStopNavigation() {
     ROS_INFO("Service call: stop navigation");
     
-    std_srvs::Trigger trigger;
+    std_srvs::Empty empty;
     
-    stop_client_.call(trigger);
+    stop_client_.call(empty);
 }
 
 void StateTriggerPanel::pushPauseNavigation() {
